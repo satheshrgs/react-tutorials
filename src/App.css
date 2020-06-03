@@ -1,0 +1,12 @@
+.counter-buttons {
+  width: 100px;
+  padding: 10px;
+}
+
+.gt10 {
+  color: red;
+}
+
+.counter-text {
+  color: green;
+}
