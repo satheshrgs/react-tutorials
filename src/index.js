@@ -1,15 +1,17 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import Test from './App';
-import App1 from './App1';
+// import Test from './App';
+// import App1 from './App1';
+import TodoApp from './TodoApp';
 
 // import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <React.StrictMode>
-    <Test />
+    {/* <Test /> */}
     {/* <App1 /> */}
+    <TodoApp />
   </React.StrictMode>,
   document.getElementById('root1')
 );
