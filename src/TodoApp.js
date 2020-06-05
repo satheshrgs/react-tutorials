@@ -9,22 +9,18 @@ class TodoApp extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
+            isloading: true,
             todos: [
-                {
-                    id: '2121212-1212-121212',
-                    task: 'Attend React Class Day 3',
-                    isCompleted: false,
-                    isDeleted: false
-                },
-                {
-                    id: '2121212-1212-123123',
-                    task: 'Attend React Class Day 2',
-                    isCompleted: true,
-                    isDeleted: false
-                }
             ],
             task: ''
         }
+    }
+
+    componentDidMount() {
+        const todos = JSON.parse(localStorage.getItem('todos')) || [];
+        this.setState({
+            todos
+        })
     }
 
     addTodo = () => {
@@ -49,6 +45,10 @@ class TodoApp extends React.Component {
         })
     }
 
+    saveTodos = () => {
+        localStorage.setItem('todos', JSON.stringify(this.state.todos));
+    }
+
     completeTodo = (todoId) => {
         const { todos } = this.state;
 
@@ -60,7 +60,9 @@ class TodoApp extends React.Component {
         });
         this.setState({
             todos: updatedTodos
-        })
+        }, () => {
+            this.saveTodos();
+        });
     }
 
     undoCompleted = todoId => {
@@ -74,7 +76,9 @@ class TodoApp extends React.Component {
         });
         this.setState({
             todos: updatedTodos
-        })
+        }, () => {
+            this.saveTodos();
+        });
     }
 
     deleteTodo = todoId => {
@@ -88,7 +92,9 @@ class TodoApp extends React.Component {
         });
         this.setState({
             todos: updatedTodos
-        })
+        }, () => {
+            this.saveTodos();
+        });
     }
 
 

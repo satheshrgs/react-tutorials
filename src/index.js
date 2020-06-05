@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom';
 import './index.css';
 // import Test from './App';
 // import App1 from './App1';
-import TodoApp from './TodoApp';
+// import TodoApp from './TodoApp';
+import RoutingApp from './Routing';
 
 // import * as serviceWorker from './serviceWorker';
 
@@ -11,7 +12,8 @@ ReactDOM.render(
   <React.StrictMode>
     {/* <Test /> */}
     {/* <App1 /> */}
-    <TodoApp />
+    {/* <TodoApp /> */}
+    <RoutingApp />
   </React.StrictMode>,
   document.getElementById('root1')
 );
